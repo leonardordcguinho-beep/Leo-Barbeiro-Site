@@ -75,4 +75,40 @@ loader.classList.add("esconder");
 
 },1200);
 
+});// Efeito Parallax Premium
+
+const banner = document.querySelector(".banner");
+
+window.addEventListener("scroll", () => {
+
+    const y = window.pageYOffset;
+
+    banner.style.backgroundPosition = `center ${y * 0.35}px`;
+
+});const menu = document.querySelector("header");
+
+document.addEventListener("mousemove",(e)=>{
+
+const x=e.clientX/window.innerWidth;
+
+const y=e.clientY/window.innerHeight;
+
+menu.style.backgroundPosition=`${x*100}% ${y*100}%`;
+
+menu.style.transform=
+`translateX(-50%) rotateX(${(0.5-y)*2}deg)
+rotateY(${(x-0.5)*2}deg)`;
+
+});const header = document.querySelector("header");
+
+document.addEventListener("mousemove", (e) => {
+
+    const rect = header.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    header.style.setProperty("--mouse-x", `${x}px`);
+    header.style.setProperty("--mouse-y", `${y}px`);
+
 });
